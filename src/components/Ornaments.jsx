@@ -113,84 +113,308 @@ export function Bangles({ size = 120, rings = 4, className = '', spin = false })
   )
 }
 
-/* ── Traditional Valaikaappu Glass Bangle Row ──────────────────
-   A stacked set of authentic South Indian glass bangles (emerald green,
-   ruby red, and engraved gold) with cut-glass facet reflections.   */
-export function BangleStack({ width = 160, className = '' }) {
-  const bangles = [
-    { type: 'green', stroke: '#2e7d56', highlight: '#74c69d' },
-    { type: 'gold', stroke: '#c69749', highlight: '#fae3b4' },
-    { type: 'ruby', stroke: '#9d3248', highlight: '#e27b91' },
-    { type: 'gold-center', stroke: '#d4a359', highlight: '#fff2d6' },
-    { type: 'ruby', stroke: '#9d3248', highlight: '#e27b91' },
-    { type: 'gold', stroke: '#c69749', highlight: '#fae3b4' },
-    { type: 'green', stroke: '#2e7d56', highlight: '#74c69d' },
-  ]
-  const h = (width / 160) * 56
+/* ── Royal Valaikaappu Bangle Jewel Crest ────────────────────────
+   An authentic South Indian heirloom jewel emblem:
+   - Carved royal gold kada (தங்கக் கடகம்) in center with embossed beadwork
+   - Traditional emerald green & ruby red glass bangles (பச்சை & சிவப்பு வளையல்)
+   - Draped fresh jasmine flower garland (மல்லிகைப் பூ மாலை)
+   - Hanging golden ghungroo bells (சலங்கை மணிகள்)
+   - Flanking royal paisley/mango filigree flourishes.                    */
+/* ── Royal Valaikaappu Bangle Jewel Crest (Pinterest Luxury Edition) ───
+   Authentic South Indian Heirloom Valaikaappu motif:
+   - 9-set auspicious traditional bangles: Imperial carved gold kada,
+     translucent emerald green glass (பச்சை), and kumkum ruby red glass (சிவப்பு)
+   - Double-strung fresh jasmine garland (மல்லிகைப் பூ மாலை) with rose buds
+   - Flanking temple gold mango/paisley vines (மாங்காய் கொடி)
+   - Triple hanging royal temple jhumkas (தங்க ஜிமிக்கி) with dangling pearls   */
+export function RoyalBangleCrest({ width = 280, className = '' }) {
+  const h = (width / 280) * 115
 
   return (
     <svg
-      className={`bangle-stack ${className}`}
-      viewBox="0 0 160 56"
+      className={`royal-bangle-crest ${className}`}
+      viewBox="-140 -48 280 118"
       width={width}
       height={h}
       fill="none"
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="bsGold" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#9d7130" />
-          <stop offset="45%" stopColor="#fae3b4" />
-          <stop offset="100%" stopColor="#c69749" />
+        {/* Imperial Gold Gradient */}
+        <linearGradient id="rbGold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#7a4a15" />
+          <stop offset="18%" stopColor="#c8963e" />
+          <stop offset="38%" stopColor="#fdefb2" />
+          <stop offset="60%" stopColor="#e5b158" />
+          <stop offset="82%" stopColor="#9a6520" />
+          <stop offset="100%" stopColor="#663c0e" />
         </linearGradient>
-        <linearGradient id="bsGreen" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#1b4d34" />
-          <stop offset="45%" stopColor="#74c69d" />
-          <stop offset="100%" stopColor="#2e7d56" />
+
+        {/* Antique Gold kada rim */}
+        <linearGradient id="rbGoldRim" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#fff3cf" />
+          <stop offset="50%" stopColor="#d4a359" />
+          <stop offset="100%" stopColor="#87581d" />
         </linearGradient>
-        <linearGradient id="bsRuby" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#681e2d" />
-          <stop offset="45%" stopColor="#e27b91" />
-          <stop offset="100%" stopColor="#9d3248" />
+
+        {/* Translucent Emerald Glass Gradient */}
+        <linearGradient id="rbEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#0a331c" />
+          <stop offset="25%" stopColor="#196339" />
+          <stop offset="50%" stopColor="#52d68a" />
+          <stop offset="78%" stopColor="#1e7343" />
+          <stop offset="100%" stopColor="#0d3d22" />
         </linearGradient>
+
+        {/* Kumkum Ruby Glass Gradient */}
+        <linearGradient id="rbRuby" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#4a0e1b" />
+          <stop offset="25%" stopColor="#8c1b32" />
+          <stop offset="50%" stopColor="#f26d87" />
+          <stop offset="78%" stopColor="#9e203b" />
+          <stop offset="100%" stopColor="#541220" />
+        </linearGradient>
+
+        {/* Pearl Drop Gradient */}
+        <radialGradient id="rbPearl" cx="35%" cy="35%" r="65%">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="60%" stopColor="#fdfbf7" />
+          <stop offset="100%" stopColor="#dcd3c4" />
+        </radialGradient>
+
+        {/* Soft Golden Glow Filter */}
+        <filter id="rbGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feDropShadow dx="0" dy="4" stdDeviation="4.5" floodColor="#87581d" floodOpacity="0.25" />
+        </filter>
+        <filter id="rbShine" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#2a180c" floodOpacity="0.20" />
+        </filter>
       </defs>
 
-      {/* Soft ground shadow under the bangles */}
-      <ellipse cx="80" cy="48" rx="66" ry="6" fill="rgba(198, 151, 73, 0.14)" />
+      {/* Aura / Halo behind crest */}
+      <ellipse cx="0" cy="5" rx="72" ry="32" fill="url(#rbGold)" opacity="0.08" />
 
-      {bangles.map((b, i) => {
-        const cx = 35 + i * 15
-        const cy = 26
-        const grad =
-          b.type.includes('gold')
-            ? 'url(#bsGold)'
-            : b.type === 'green'
-            ? 'url(#bsGreen)'
-            : 'url(#bsRuby)'
-        return (
-          <g key={i} transform={`translate(${cx}, ${cy}) rotate(-14)`}>
-            {/* Outer glass bangle ring */}
-            <ellipse
-              rx="11"
-              ry="24"
-              stroke={grad}
-              strokeWidth={b.type.includes('gold') ? '2.8' : '2.4'}
-            />
-            {/* Inner cut facet reflection */}
-            <ellipse
-              rx="9"
-              ry="22"
-              stroke={b.highlight}
-              strokeWidth="0.9"
-              opacity={b.type.includes('gold') ? '0.85' : '0.65'}
-              strokeDasharray={b.type.includes('gold') ? '2 4' : undefined}
-            />
+      {/* Flanking Royal Paisley Mango Vines (மாங்கொடி) */}
+      <g stroke="url(#rbGold)" strokeWidth="1.3" strokeLinecap="round" opacity="0.85" fill="none">
+        {/* Left Paisley Branch */}
+        <path d="M-48 6 C -72 -10 -98 -12 -118 -2 C -128 4 -126 16 -115 16 C -105 16 -103 6 -111 2" />
+        <path d="M-52 14 C -76 22 -96 18 -108 8" strokeDasharray="1.5 3.5" />
+        <circle cx="-116" cy="-3" r="2.2" fill="url(#rbGold)" stroke="none" />
+        <circle cx="-130" cy="6" r="1.6" fill="#fdefb2" stroke="none" />
+        {/* Left tiny leaves */}
+        <path d="M-82 -3 C -88 -9 -84 -16 -76 -13 C -76 -7 -80 -3 -82 -3 Z" fill="#2d774d" opacity="0.75" />
+        <path d="M-66 3 C -70 -3 -66 -9 -60 -7 C -60 -2 -64 3 -66 3 Z" fill="#2d774d" opacity="0.75" />
+
+        {/* Right Paisley Branch */}
+        <path d="M48 6 C 72 -10 98 -12 118 -2 C 128 4 126 16 115 16 C 105 16 103 6 111 2" />
+        <path d="M52 14 C 76 22 96 18 108 8" strokeDasharray="1.5 3.5" />
+        <circle cx="116" cy="-3" r="2.2" fill="url(#rbGold)" stroke="none" />
+        <circle cx="130" cy="6" r="1.6" fill="#fdefb2" stroke="none" />
+        {/* Right tiny leaves */}
+        <path d="M82 -3 C 88 -9 84 -16 76 -13 C 76 -7 80 -3 82 -3 Z" fill="#2d774d" opacity="0.75" />
+        <path d="M66 3 C 70 -3 66 -9 60 -7 C 60 -2 64 3 66 3 Z" fill="#2d774d" opacity="0.75" />
+      </g>
+
+      {/* ── 9 Traditional Auspicious Bangles ───────────────────── */}
+      <g filter="url(#rbGlow)">
+        {/* 1. Far Left: Gold beaded kada */}
+        <g transform="translate(-40, 2) rotate(-22)">
+          <ellipse rx="15" ry="26" stroke="url(#rbGold)" strokeWidth="3.2" />
+          <ellipse rx="12.6" ry="23.6" stroke="#fff1d0" strokeWidth="0.8" strokeDasharray="2 3" opacity="0.85" />
+          {/* Edge studs */}
+          {[-18, 0, 18].map((deg, i) => {
+            const rad = ((deg - 90) * Math.PI) / 180
+            return (
+              <circle
+                key={i}
+                cx={15 * Math.cos(rad)}
+                cy={26 * Math.sin(rad)}
+                r="1.4"
+                fill="#fdefb2"
+                stroke="#663c0e"
+                strokeWidth="0.4"
+              />
+            )
+          })}
+        </g>
+
+        {/* 2. Far Right: Gold beaded kada */}
+        <g transform="translate(40, 2) rotate(22)">
+          <ellipse rx="15" ry="26" stroke="url(#rbGold)" strokeWidth="3.2" />
+          <ellipse rx="12.6" ry="23.6" stroke="#fff1d0" strokeWidth="0.8" strokeDasharray="2 3" opacity="0.85" />
+          {[-18, 0, 18].map((deg, i) => {
+            const rad = ((deg - 90) * Math.PI) / 180
+            return (
+              <circle
+                key={i}
+                cx={15 * Math.cos(rad)}
+                cy={26 * Math.sin(rad)}
+                r="1.4"
+                fill="#fdefb2"
+                stroke="#663c0e"
+                strokeWidth="0.4"
+              />
+            )
+          })}
+        </g>
+
+        {/* 3. Outer Emerald Green Glass (Left) */}
+        <g transform="translate(-30, 4) rotate(-16)">
+          <ellipse rx="15.5" ry="27" stroke="url(#rbEmerald)" strokeWidth="3.6" />
+          <ellipse rx="13.2" ry="24.4" stroke="#7ae0a8" strokeWidth="0.9" opacity="0.9" />
+          {/* Glass specular glint */}
+          <path d="M-12 -14 A 15.5 27 0 0 1 0 -27" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />
+        </g>
+
+        {/* 4. Outer Emerald Green Glass (Right) */}
+        <g transform="translate(30, 4) rotate(16)">
+          <ellipse rx="15.5" ry="27" stroke="url(#rbEmerald)" strokeWidth="3.6" />
+          <ellipse rx="13.2" ry="24.4" stroke="#7ae0a8" strokeWidth="0.9" opacity="0.9" />
+          <path d="M12 -14 A 15.5 27 0 0 0 0 -27" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />
+        </g>
+
+        {/* 5. Mid Ruby Red Glass (Left) */}
+        <g transform="translate(-20, 6) rotate(-10)">
+          <ellipse rx="16" ry="28" stroke="url(#rbRuby)" strokeWidth="3.8" />
+          <ellipse rx="13.6" ry="25.2" stroke="#fba3b4" strokeWidth="0.9" opacity="0.92" />
+          <path d="M-13 -15 A 16 28 0 0 1 0 -28" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />
+        </g>
+
+        {/* 6. Mid Ruby Red Glass (Right) */}
+        <g transform="translate(20, 6) rotate(10)">
+          <ellipse rx="16" ry="28" stroke="url(#rbRuby)" strokeWidth="3.8" />
+          <ellipse rx="13.6" ry="25.2" stroke="#fba3b4" strokeWidth="0.9" opacity="0.92" />
+          <path d="M13 -15 A 16 28 0 0 0 0 -28" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />
+        </g>
+
+        {/* 7. Inner Gold Filigree Bangle (Left) */}
+        <g transform="translate(-10, 8) rotate(-5)">
+          <ellipse rx="16.5" ry="28.5" stroke="url(#rbGold)" strokeWidth="3.4" />
+          <ellipse rx="14.2" ry="25.8" stroke="#fff3cf" strokeWidth="1" strokeDasharray="1.5 3" opacity="0.95" />
+        </g>
+
+        {/* 8. Inner Gold Filigree Bangle (Right) */}
+        <g transform="translate(10, 8) rotate(5)">
+          <ellipse rx="16.5" ry="28.5" stroke="url(#rbGold)" strokeWidth="3.4" />
+          <ellipse rx="14.2" ry="25.8" stroke="#fff3cf" strokeWidth="1" strokeDasharray="1.5 3" opacity="0.95" />
+        </g>
+
+        {/* 9. CENTERPIECE: Grand Royal Kada (ராஜ தங்கக் கடகம்) */}
+        <g transform="translate(0, 9)" filter="url(#rbShine)">
+          {/* Main Gold Tube */}
+          <ellipse rx="17.5" ry="29.5" stroke="url(#rbGold)" strokeWidth="5.2" />
+          {/* Central Carved Zari Inlay */}
+          <ellipse rx="15" ry="26.5" stroke="#fff4d4" strokeWidth="1.4" strokeDasharray="3 3.5" opacity="0.95" />
+          {/* Embossed kasu / jewel beads */}
+          {[-24, -16, -8, 0, 8, 16, 24].map((deg, idx) => {
+            const rad = ((deg - 90) * Math.PI) / 180
+            const bx = 17.5 * Math.cos(rad)
+            const by = 29.5 * Math.sin(rad)
+            return (
+              <g key={idx} transform={`translate(${bx}, ${by})`}>
+                <circle r="1.8" fill="#fff5d6" stroke="#7a4a15" strokeWidth="0.5" />
+                {idx === 3 && <circle r="0.9" fill="#9e203b" />} {/* Central ruby bindu */}
+              </g>
+            )
+          })}
+          {/* High gloss specular reflection on gold curve */}
+          <path d="M-12 -20 A 17.5 29.5 0 0 1 10 -25" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.92" />
+        </g>
+      </g>
+
+      {/* ── Fragrant Jasmine Garland (மல்லிகைப் பூ மாலை) ──────── */}
+      <g>
+        {/* Sacred yellow/red tying thread (காப்பு நூல்) */}
+        <path d="M-46 16 Q 0 42 46 16" stroke="#d49b29" strokeWidth="1.4" fill="none" opacity="0.75" />
+        <path d="M-46 17 Q 0 43 46 17" stroke="#b22b3f" strokeWidth="1.1" strokeDasharray="3 3" fill="none" opacity="0.8" />
+
+        {/* Lush Jasmine Buds with Blush Rose accents */}
+        {[
+          { x: -44, y: 17, r: -26, isRose: false },
+          { x: -33, y: 24, r: -18, isRose: false },
+          { x: -22, y: 30, r: -10, isRose: true },
+          { x: -11, y: 34, r: -4,  isRose: false },
+          { x: 0,   y: 36, r: 0,   isRose: true }, // Centre rose accent
+          { x: 11,  y: 34, r: 4,   isRose: false },
+          { x: 22,  y: 30, r: 10,  isRose: true },
+          { x: 33,  y: 24, r: 18,  isRose: false },
+          { x: 44,  y: 17, r: 26,  isRose: false },
+        ].map((bud, i) => (
+          <g key={i} transform={`translate(${bud.x}, ${bud.y}) rotate(${bud.r})`}>
+            {bud.isRose ? (
+              /* Pinkish rose petal accent in garland */
+              <g>
+                <circle cx="0" cy="5" r="3.6" fill="#df5c76" stroke="#a61c36" strokeWidth="0.5" />
+                <circle cx="0" cy="5" r="2" fill="#f89cb0" />
+                <path d="M-2 1 L0 -1 L2 1" stroke="#256b3e" strokeWidth="1" fill="none" />
+              </g>
+            ) : (
+              /* Fragrant Jasmine Bud (மல்லி மொட்டு) */
+              <g>
+                {/* Green calyx */}
+                <path d="M-2.2 2 L0 -1 L2.2 2 Z" fill="#20693a" />
+                {/* White jasmine petals */}
+                <ellipse cx="0" cy="5.2" rx="3.6" ry="5.2" fill="#ffffff" stroke="#e8dfce" strokeWidth="0.5" />
+                <ellipse cx="-1.5" cy="4.2" rx="2.2" ry="4" fill="#fbfaf6" />
+                {/* Pollen glint */}
+                <circle cx="0" cy="9.2" r="1.1" fill="#e5ad35" />
+              </g>
+            )}
           </g>
-        )
-      })}
+        ))}
+      </g>
+
+      {/* ── Triple Royal Temple Jhumkas / Jimikki (ஜிமிக்கி சலங்கை) ─ */}
+      <g filter="url(#rbGlow)">
+        {/* Left Small Jhumka */}
+        <g transform="translate(-20, 38)">
+          <line x1="0" y1="0" x2="0" y2="7" stroke="url(#rbGold)" strokeWidth="1.2" />
+          <circle cx="0" cy="8" r="1.8" fill="url(#rbGold)" stroke="#663c0e" strokeWidth="0.5" />
+          {/* Bell dome */}
+          <path d="M-5 11 C -5 7.5 5 7.5 5 11 L 4 16 L -4 16 Z" fill="url(#rbGold)" stroke="#663c0e" strokeWidth="0.6" />
+          {/* Filigree ribs */}
+          <path d="M-2 9 L -2 15 M 2 9 L 2 15" stroke="#fff4d4" strokeWidth="0.7" />
+          {/* Pearl drop */}
+          <circle cx="0" cy="19.5" r="2.2" fill="url(#rbPearl)" stroke="#87581d" strokeWidth="0.5" />
+        </g>
+
+        {/* Right Small Jhumka */}
+        <g transform="translate(20, 38)">
+          <line x1="0" y1="0" x2="0" y2="7" stroke="url(#rbGold)" strokeWidth="1.2" />
+          <circle cx="0" cy="8" r="1.8" fill="url(#rbGold)" stroke="#663c0e" strokeWidth="0.5" />
+          <path d="M-5 11 C -5 7.5 5 7.5 5 11 L 4 16 L -4 16 Z" fill="url(#rbGold)" stroke="#663c0e" strokeWidth="0.6" />
+          <path d="M-2 9 L -2 15 M 2 9 L 2 15" stroke="#fff4d4" strokeWidth="0.7" />
+          <circle cx="0" cy="19.5" r="2.2" fill="url(#rbPearl)" stroke="#87581d" strokeWidth="0.5" />
+        </g>
+
+        {/* Centre Grand Royal Jhumka */}
+        <g transform="translate(0, 43)">
+          <line x1="0" y1="0" x2="0" y2="8" stroke="url(#rbGold)" strokeWidth="1.4" />
+          <circle cx="0" cy="9.5" r="2.4" fill="url(#rbGold)" stroke="#663c0e" strokeWidth="0.6" />
+          <circle cx="0" cy="9.5" r="1" fill="#9e203b" /> {/* Ruby stud */}
+          {/* Grand dome */}
+          <path d="M-7 13.5 C -7 9 7 9 7 13.5 L 5.5 19.5 L -5.5 19.5 Z" fill="url(#rbGold)" stroke="#663c0e" strokeWidth="0.8" />
+          {/* Filigree dots & ribs */}
+          <path d="M-3.5 11.5 L -3.5 18.5 M 0 10.5 L 0 19 M 3.5 11.5 L 3.5 18.5" stroke="#fff4d4" strokeWidth="0.8" />
+          {[-5, 0, 5].map((x, idx) => (
+            <circle key={idx} cx={x} cy="19.5" r="0.9" fill="#fff4d4" />
+          ))}
+          {/* Triple hanging pearl droplets */}
+          <line x1="0" y1="19.5" x2="0" y2="23" stroke="url(#rbGold)" strokeWidth="1" />
+          <circle cx="0" cy="25.5" r="2.6" fill="url(#rbPearl)" stroke="#7a4a15" strokeWidth="0.6" />
+          <line x1="-4" y1="19.5" x2="-4" y2="22.5" stroke="url(#rbGold)" strokeWidth="0.9" />
+          <circle cx="-4" cy="24.5" r="1.8" fill="url(#rbPearl)" stroke="#7a4a15" strokeWidth="0.5" />
+          <line x1="4" y1="19.5" x2="4" y2="22.5" stroke="url(#rbGold)" strokeWidth="0.9" />
+          <circle cx="4" cy="24.5" r="1.8" fill="url(#rbPearl)" stroke="#7a4a15" strokeWidth="0.5" />
+        </g>
+      </g>
     </svg>
   )
 }
+
+export const BangleStack = RoyalBangleCrest
+
+
 
 /* ── Auspicious Interlocking Bangles ───────────────────────────
    Green glass bangle linked with an antique gold bangle.         */

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import siteConfig from '../config/siteConfig.js'
 import { guestName } from '../utils/share.js'
-import { Bangles, Kolam, Lotus } from './Ornaments.jsx'
+import { Bangles, Kolam, Lotus, RoyalBangleCrest } from './Ornaments.jsx'
 
 const BURST_PARTICLES = Array.from({ length: 14 }, (_, i) => {
   const angle = (i * (360 / 14) * Math.PI) / 180
@@ -81,7 +81,7 @@ export default function Intro({ onOpen }) {
           {/* Real Invitation Card that pulls out */}
           <div className="env-card" aria-hidden="true">
             <div className="env-card-inner">
-              <span className="env-card-orn">🪷</span>
+              <RoyalBangleCrest width={100} className="env-card-crest" />
               <span className="env-card-eyebrow">Invitation</span>
               <h3 className="env-card-title">{hero.titleTop}</h3>
               <p className="env-card-tamil">{hero.titleTamil}</p>

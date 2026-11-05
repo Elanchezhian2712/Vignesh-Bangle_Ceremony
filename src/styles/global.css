@@ -534,6 +534,7 @@ a { color: inherit; }
   gap: 3px;
 }
 .env-card-orn { font-size: 20px; line-height: 1; }
+.env-card-crest { margin-bottom: 2px; max-width: 90px; }
 .env-card-eyebrow {
   font-size: 8px;
   letter-spacing: 0.3em;
@@ -856,14 +857,18 @@ a { color: inherit; }
   50%      { transform: translateY(-4px) rotate(0.8deg); }
 }
 
-.bangle-stack {
+.bangle-stack,
+.royal-bangle-crest {
   display: block;
   overflow: visible;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
-.bangle-stack:hover {
+.bangle-stack:hover,
+.royal-bangle-crest:hover {
   transform: scale(1.06);
+  filter: drop-shadow(0 6px 18px rgba(198, 151, 73, 0.45));
 }
+
 
 .bangle-knot {
   display: block;

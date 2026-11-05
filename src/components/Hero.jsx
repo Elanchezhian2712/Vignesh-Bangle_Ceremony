@@ -1,6 +1,6 @@
 import siteConfig from '../config/siteConfig.js'
 import { guestName } from '../utils/share.js'
-import { Arch, BangleStack, Feather, Floral, Lotus, Mandala, Toran } from './Ornaments.jsx'
+import { Arch, Feather, Floral, Lotus, Mandala, RoyalBangleCrest, Toran } from './Ornaments.jsx'
 import SplitText from './SplitText.jsx'
 
 export default function Hero({ opened = false }) {
@@ -45,7 +45,7 @@ export default function Hero({ opened = false }) {
         <p className="hero__sub">{hero.titleSub}</p>
 
         <div className="hero__bangles-wrap" aria-hidden="true">
-          <BangleStack width={170} />
+          <RoyalBangleCrest width={270} />
         </div>
 
         <p className="hero__names">
