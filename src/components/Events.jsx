@@ -1,7 +1,7 @@
 import siteConfig from '../config/siteConfig.js'
 import Section from './Section.jsx'
 import { googleCalendarUrl } from '../utils/calendar.js'
-import { Arch, Bangles, Floral, PaisleyDivider } from './Ornaments.jsx'
+import { Arch, BangleStack, Floral, PaisleyDivider } from './Ornaments.jsx'
 
 function EventCard({ event }) {
   return (
@@ -10,7 +10,7 @@ function EventCard({ event }) {
         <Arch strokeWidth={1.4} />
 
         <span className="event__crest" aria-hidden="true">
-          <Bangles size={62} rings={4} />
+          <BangleStack width={135} />
         </span>
 
         <h3 className="event__name">{event.name}</h3>

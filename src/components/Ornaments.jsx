@@ -113,6 +113,134 @@ export function Bangles({ size = 120, rings = 4, className = '', spin = false })
   )
 }
 
+/* ── Traditional Valaikaappu Glass Bangle Row ──────────────────
+   A stacked set of authentic South Indian glass bangles (emerald green,
+   ruby red, and engraved gold) with cut-glass facet reflections.   */
+export function BangleStack({ width = 160, className = '' }) {
+  const bangles = [
+    { type: 'green', stroke: '#2e7d56', highlight: '#74c69d' },
+    { type: 'gold', stroke: '#c69749', highlight: '#fae3b4' },
+    { type: 'ruby', stroke: '#9d3248', highlight: '#e27b91' },
+    { type: 'gold-center', stroke: '#d4a359', highlight: '#fff2d6' },
+    { type: 'ruby', stroke: '#9d3248', highlight: '#e27b91' },
+    { type: 'gold', stroke: '#c69749', highlight: '#fae3b4' },
+    { type: 'green', stroke: '#2e7d56', highlight: '#74c69d' },
+  ]
+  const h = (width / 160) * 56
+
+  return (
+    <svg
+      className={`bangle-stack ${className}`}
+      viewBox="0 0 160 56"
+      width={width}
+      height={h}
+      fill="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="bsGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#9d7130" />
+          <stop offset="45%" stopColor="#fae3b4" />
+          <stop offset="100%" stopColor="#c69749" />
+        </linearGradient>
+        <linearGradient id="bsGreen" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#1b4d34" />
+          <stop offset="45%" stopColor="#74c69d" />
+          <stop offset="100%" stopColor="#2e7d56" />
+        </linearGradient>
+        <linearGradient id="bsRuby" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#681e2d" />
+          <stop offset="45%" stopColor="#e27b91" />
+          <stop offset="100%" stopColor="#9d3248" />
+        </linearGradient>
+      </defs>
+
+      {/* Soft ground shadow under the bangles */}
+      <ellipse cx="80" cy="48" rx="66" ry="6" fill="rgba(198, 151, 73, 0.14)" />
+
+      {bangles.map((b, i) => {
+        const cx = 35 + i * 15
+        const cy = 26
+        const grad =
+          b.type.includes('gold')
+            ? 'url(#bsGold)'
+            : b.type === 'green'
+            ? 'url(#bsGreen)'
+            : 'url(#bsRuby)'
+        return (
+          <g key={i} transform={`translate(${cx}, ${cy}) rotate(-14)`}>
+            {/* Outer glass bangle ring */}
+            <ellipse
+              rx="11"
+              ry="24"
+              stroke={grad}
+              strokeWidth={b.type.includes('gold') ? '2.8' : '2.4'}
+            />
+            {/* Inner cut facet reflection */}
+            <ellipse
+              rx="9"
+              ry="22"
+              stroke={b.highlight}
+              strokeWidth="0.9"
+              opacity={b.type.includes('gold') ? '0.85' : '0.65'}
+              strokeDasharray={b.type.includes('gold') ? '2 4' : undefined}
+            />
+          </g>
+        )
+      })}
+    </svg>
+  )
+}
+
+/* ── Auspicious Interlocking Bangles ───────────────────────────
+   Green glass bangle linked with an antique gold bangle.         */
+export function BangleKnot({ size = 56, className = '' }) {
+  return (
+    <svg
+      className={`bangle-knot ${className}`}
+      viewBox="-40 -30 80 60"
+      width={size}
+      height={(size / 80) * 60}
+      fill="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="bkGold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#9d7130" />
+          <stop offset="45%" stopColor="#f5deb3" />
+          <stop offset="100%" stopColor="#c69749" />
+        </linearGradient>
+        <linearGradient id="bkGreen" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#1b4d34" />
+          <stop offset="50%" stopColor="#74c69d" />
+          <stop offset="100%" stopColor="#2e7d56" />
+        </linearGradient>
+      </defs>
+
+      {/* Left Bangle: Green glass */}
+      <g transform="translate(-12, 0) rotate(-16)">
+        <ellipse rx="16" ry="24" stroke="url(#bkGreen)" strokeWidth="3" />
+        <ellipse rx="13.5" ry="21.5" stroke="#74c69d" strokeWidth="0.8" opacity="0.75" />
+      </g>
+
+      {/* Right Bangle: Cut Gold */}
+      <g transform="translate(12, 0) rotate(16)">
+        <ellipse rx="16" ry="24" stroke="url(#bkGold)" strokeWidth="3.2" />
+        <ellipse
+          rx="13.5"
+          ry="21.5"
+          stroke="#fff0c4"
+          strokeWidth="1"
+          strokeDasharray="2 4"
+        />
+      </g>
+
+      {/* Center auspicious floral bindu */}
+      <circle cx="0" cy="0" r="3.5" fill="#f5deb3" stroke="#9d7130" strokeWidth="1" />
+    </svg>
+  )
+}
+
 /* ── Kolam ────────────────────────────────────────────────────
    A pulli kolam: a dot grid with a continuous looping line
    threaded around it. Draws itself when it scrolls into view.   */

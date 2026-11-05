@@ -20,7 +20,7 @@ export const siteConfig = {
     joiner: '&',
     motherPhoto: '/mother.jpg',
     fatherPhoto: '/father.jpg',
-    motherParents: 'S/o Mr. Gurusamy & Mrs. Kavitha',
+    motherParents: 'D/o Mr. Gurusamy & Mrs. Kavitha',
     fatherParents: 'S/o Mr. Natarajan & Mrs. Thanabakkiyam',
   },
 

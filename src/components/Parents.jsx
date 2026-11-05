@@ -1,6 +1,6 @@
 import siteConfig from '../config/siteConfig.js'
 import Section from './Section.jsx'
-import { Bangles, Lotus } from './Ornaments.jsx'
+import { BangleKnot } from './Ornaments.jsx'
 
 function Parent({ photo, name, role, sub, fallback }) {
   return (
@@ -42,7 +42,7 @@ export default function Parents() {
         />
 
         <div className="parents__knot" aria-hidden="true">
-          <Lotus size={44} petals={6} />
+          <BangleKnot size={68} />
         </div>
 
         <Parent

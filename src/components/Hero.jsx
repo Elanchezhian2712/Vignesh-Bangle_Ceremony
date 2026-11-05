@@ -1,6 +1,6 @@
 import siteConfig from '../config/siteConfig.js'
 import { guestName } from '../utils/share.js'
-import { Arch, Feather, Floral, Lotus, Mandala, Toran } from './Ornaments.jsx'
+import { Arch, BangleStack, Feather, Floral, Lotus, Mandala, Toran } from './Ornaments.jsx'
 import SplitText from './SplitText.jsx'
 
 export default function Hero({ opened = false }) {
@@ -43,6 +43,10 @@ export default function Hero({ opened = false }) {
             it here too just repeats the same word in two scripts. */}
         <SplitText as="h1" className="hero__title foil" text={hero.titleTop} delay={0.15} />
         <p className="hero__sub">{hero.titleSub}</p>
+
+        <div className="hero__bangles-wrap" aria-hidden="true">
+          <BangleStack width={170} />
+        </div>
 
         <p className="hero__names">
           {couple.fatherName} <em>{couple.joiner}</em> {couple.motherName}
