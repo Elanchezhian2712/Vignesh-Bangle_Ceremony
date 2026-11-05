@@ -15,12 +15,11 @@ export const siteConfig = {
   // ── The couple / parents-to-be ────────────────────────────
   couple: {
     motherName: 'Devi Sri G',
-    fatherName: 'Vigneshvaran N ',
-    // Shown as "Vigneshvaran N  & Devi Sri G"
+    fatherName: 'Vigneshvaran N',
+    // Shown as "Vigneshvaran N & Devi Sri G"
     joiner: '&',
-    // Optional: put real photos in /public and use '/mom.jpg' etc.
-    motherPhoto: '',
-    fatherPhoto: '',
+    motherPhoto: '/mother.jpg',
+    fatherPhoto: '/father.jpg',
     motherParents: 'S/o Mr. Gurusamy & Mrs. Kavitha',
     fatherParents: 'S/o Mr. Natarajan & Mrs. Thanabakkiyam',
   },
