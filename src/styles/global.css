@@ -1254,13 +1254,15 @@ a { color: inherit; }
 .contact b { font-weight: 500; }
 .contact span { color: var(--ink-soft); }
 
+#contact.section--tight { padding-bottom: 20px; }
+
 .footer {
   position: relative;
   text-align: center;
-  padding: 70px 22px 96px;
-  margin-top: 40px;
+  padding: 20px 22px 80px;
+  margin-top: 0;
 }
-.footer__orn { display: grid; place-items: center; color: var(--gold); margin-bottom: 26px; }
+.footer__orn { display: grid; place-items: center; color: var(--gold); margin-bottom: 18px; }
 .footer__names { font-family: var(--script); font-size: clamp(30px, 6.5vw, 46px); color: var(--gold-deep); margin: 0 0 10px; }
 .footer__line { color: var(--ink-soft); font-size: 14px; margin: 0 0 26px; letter-spacing: 0.05em; }
 .footer__credit { font-size: 10.5px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink-faint); }
