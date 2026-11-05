@@ -6,8 +6,6 @@ function Parent({ photo, name, role, sub, fallback }) {
   return (
     <div className="parent">
       <div className="parent__ring">
-        {/* The bangle stack is the frame - slowly turning. */}
-        <Bangles className="parent__bangles" size="100%" rings={3} spin />
         <div className="parent__photo">
           {photo ? (
             <img src={photo} alt={name} loading="lazy" />

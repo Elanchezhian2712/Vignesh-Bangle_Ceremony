@@ -1013,19 +1013,19 @@ a { color: inherit; }
   filter: drop-shadow(0 4px 12px rgba(198, 151, 73, 0.35));
 }
 .parent__photo {
-  width: 76%;
-  height: 76%;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   overflow: hidden;
   background: linear-gradient(140deg, var(--rose-lite), var(--sage));
   display: grid; place-items: center;
   font-size: 44px;
-  box-shadow: 0 10px 26px -6px rgba(46, 38, 34, 0.16), 0 0 0 3px #ffffff, 0 0 0 4px rgba(198, 151, 73, 0.35);
+  box-shadow: 0 12px 30px -6px rgba(46, 38, 34, 0.16), 0 0 0 4px #ffffff, 0 0 0 6px var(--gold);
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s;
 }
 .parent:hover .parent__photo {
-  transform: scale(1.06);
-  box-shadow: 0 16px 36px -6px rgba(198, 151, 73, 0.35), 0 0 0 3px #ffffff, 0 0 0 5px rgba(198, 151, 73, 0.6);
+  transform: scale(1.05);
+  box-shadow: 0 18px 40px -6px rgba(198, 151, 73, 0.35), 0 0 0 4px #ffffff, 0 0 0 7px var(--gold-deep);
 }
 .parent__photo img {
   width: 100%;
