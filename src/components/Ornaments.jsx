@@ -504,44 +504,131 @@ export function Kolam({ size = 200, className = '' }) {
   )
 }
 
-/* ── Toran ────────────────────────────────────────────────────
-   The mango-leaf garland strung across a doorway. Leaves hang
-   from a slack cord, longer in the middle like the real thing.  */
+/* ── Toran with Festive Fairy Lights ──────────────────────────
+   Traditional mango-leaf garland strung with warm, glowing
+   festive fairy lights across the entrance.                     */
 export function Toran({ leaves = 26, className = '' }) {
   const W = 1200
   const sag = 26
+
+  // Mango leaves hanging along the cord
   const items = Array.from({ length: leaves }, (_, i) => {
     const t = i / (leaves - 1)
     const x = t * W
-    // Parabolic slack, matching the cord path below.
     const y = 4 * sag * t * (1 - t)
-    // Longest leaves at the centre, tapering to the ends.
     const len = 26 + 20 * Math.sin(Math.PI * t)
     const tilt = (t - 0.5) * 26
     return { x, y, len, tilt, i }
   })
 
+  // Festive glowing light bulbs nestled between the leaves
+  const lights = Array.from({ length: leaves - 1 }, (_, i) => {
+    const t = (i + 0.5) / (leaves - 1)
+    const x = t * W
+    const y = 4 * sag * t * (1 - t)
+    const drop = 9 + (i % 3) * 3
+    return { x, y, drop, i }
+  })
+
   return (
     <svg
       className={`toran ${className}`}
-      viewBox={`0 0 ${W} 90`}
+      viewBox={`0 0 ${W} 92`}
       preserveAspectRatio="none"
       aria-hidden="true"
     >
+      <defs>
+        {/* Warm incandescent bulb radial glow */}
+        <radialGradient id="bulbGlowGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#fffbeb" stopOpacity="1" />
+          <stop offset="35%" stopColor="#fde047" stopOpacity="0.85" />
+          <stop offset="70%" stopColor="#f59e0b" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#d97706" stopOpacity="0" />
+        </radialGradient>
+
+        {/* Bulb glass gradient */}
+        <linearGradient id="bulbGlass" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="32%" stopColor="#fef08a" />
+          <stop offset="75%" stopColor="#f59e0b" />
+          <stop offset="100%" stopColor="#b45309" />
+        </linearGradient>
+
+        {/* Gold brass socket cap */}
+        <linearGradient id="bulbSocket" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#78350f" />
+          <stop offset="50%" stopColor="#fcd34d" />
+          <stop offset="100%" stopColor="#78350f" />
+        </linearGradient>
+
+        {/* Bloom glow filter */}
+        <filter id="bulbBloom" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="2.5" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      {/* Main suspension cord (natural jute/sage cord) */}
       <path
         d={`M0 0 Q ${W / 2} ${2 * sag} ${W} 0`}
         fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
+        stroke="var(--sage, #6b8e23)"
+        strokeWidth="2.2"
+        opacity="0.75"
+      />
+
+      {/* Festive fairy light wire weaving across the cord */}
+      <path
+        d={`M0 1 Q ${W / 2} ${2 * sag + 2} ${W} 1`}
+        fill="none"
+        stroke="#d97706"
+        strokeWidth="0.9"
+        strokeDasharray="4 6"
         opacity="0.65"
       />
+
+      {/* Mango Leaves */}
       {items.map(({ x, y, len, tilt, i }) => (
-        <g key={i} transform={`translate(${x} ${y}) rotate(${tilt})`}>
+        <g key={`leaf-${i}`} transform={`translate(${x} ${y}) rotate(${tilt})`}>
           <path
             d={`M0 0 C -7 ${len * 0.4} -5 ${len * 0.8} 0 ${len} C 5 ${len * 0.8} 7 ${len * 0.4} 0 0 Z`}
-            fill="currentColor"
-            opacity={i % 3 === 0 ? 0.9 : 0.62}
+            fill="var(--sage, #4d7c0f)"
+            opacity={i % 3 === 0 ? 0.92 : 0.68}
           />
+          {/* Subtle leaf spine */}
+          <line x1="0" y1="0" x2="0" y2={len * 0.8} stroke="#ffffff" strokeWidth="0.5" opacity="0.35" />
+        </g>
+      ))}
+
+      {/* Glowing Festive Light Bulbs */}
+      {lights.map(({ x, y, drop, i }) => (
+        <g
+          key={`light-${i}`}
+          className={`toran__light toran__light--${i % 4}`}
+          transform={`translate(${x} ${y})`}
+        >
+          {/* Dainty suspension wire */}
+          <line x1="0" y1="0" x2="0" y2={drop} stroke="#94a3b8" strokeWidth="0.9" opacity="0.7" />
+
+          {/* Golden brass socket cap */}
+          <rect x="-2" y={drop} width="4" height="2.8" rx="0.6" fill="url(#bulbSocket)" />
+
+          {/* Radiant warm amber halo */}
+          <circle cx="0" cy={drop + 7.5} r="13" fill="url(#bulbGlowGrad)" opacity="0.9" />
+
+          {/* Teardrop festival bulb */}
+          <path
+            d={`M -3 ${drop + 2.8} C -4.2 ${drop + 6} -3.6 ${drop + 9.5} 0 ${drop + 13} C 3.6 ${drop + 9.5} 4.2 ${drop + 6} 3 ${drop + 2.8} Z`}
+            fill="url(#bulbGlass)"
+            filter="url(#bulbBloom)"
+          />
+
+          {/* Glowing hot white core filament */}
+          <circle cx="0" cy={drop + 6.5} r="1.5" fill="#ffffff" opacity="0.95" />
+          <circle cx="-0.8" cy={drop + 4.8} r="0.7" fill="#ffffff" opacity="0.9" />
         </g>
       ))}
     </svg>
