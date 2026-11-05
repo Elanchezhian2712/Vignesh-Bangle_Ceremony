@@ -6,7 +6,6 @@ import Hero from './components/Hero.jsx'
 import Countdown from './components/Countdown.jsx'
 import Parents from './components/Parents.jsx'
 import Events from './components/Events.jsx'
-import Gallery from './components/Gallery.jsx'
 import GuessGame from './components/GuessGame.jsx'
 import Rsvp from './components/Rsvp.jsx'
 import Wishes from './components/Wishes.jsx'
@@ -44,7 +43,6 @@ export default function App() {
         <Countdown />
         <Parents />
         <Events />
-        <Gallery />
         <GuessGame />
         <Rsvp />
         <Wishes />

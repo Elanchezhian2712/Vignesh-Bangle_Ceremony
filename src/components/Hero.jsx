@@ -64,8 +64,8 @@ export default function Hero({ opened = false }) {
           <a className="btn btn--solid" href="#events">
             The Ceremony
           </a>
-          <a className="btn btn--ghost" href="#gallery">
-            Our Moments
+          <a className="btn btn--ghost" href="#rsvp">
+            RSVP
           </a>
         </div>
 
