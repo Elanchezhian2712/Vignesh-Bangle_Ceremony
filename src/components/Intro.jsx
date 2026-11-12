@@ -34,6 +34,10 @@ export default function Intro({ onOpen }) {
   function handleOpen() {
     if (stage !== 'idle') return
 
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur()
+    }
+
     // Step 1: Break seal and fold flap open
     setStage('breaking')
 
@@ -61,7 +65,7 @@ export default function Intro({ onOpen }) {
       className={`intro intro--${stage}`}
       role="dialog"
       aria-label="Open your invitation"
-      aria-hidden={stage !== 'idle'}
+      inert={stage !== 'idle' ? '' : undefined}
     >
       <div className="intro__inner">
         <span className="intro__bangles" aria-hidden="true">
@@ -128,7 +132,9 @@ export default function Intro({ onOpen }) {
         </div>
 
         <h1 className="intro__names">
-          {couple.fatherName} {couple.joiner} {couple.motherName}
+          <span className="name-nowrap">{couple.fatherName}</span>{' '}
+          <em>{couple.joiner}</em>{' '}
+          <span className="name-nowrap">{couple.motherName}</span>
         </h1>
         <p className="intro__hint" lang="ta">
           {hero.titleTamil} · invite you to celebrate

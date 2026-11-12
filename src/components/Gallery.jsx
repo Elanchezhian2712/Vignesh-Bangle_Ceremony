@@ -18,7 +18,7 @@ function Tile({ item, index, hasPhoto, onOpen }) {
       disabled={!hasPhoto}
     >
       {hasPhoto ? (
-        <img src={item.src} alt={item.caption} loading="lazy" />
+        <img src={item.src} alt={item.caption} decoding="async" />
       ) : (
         <span className="tile__ph" aria-hidden="true">
           <Lotus size={46} petals={index % 2 ? 6 : 8} />

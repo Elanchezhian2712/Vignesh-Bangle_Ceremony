@@ -49,7 +49,9 @@ export default function Hero({ opened = false }) {
         </div>
 
         <p className="hero__names">
-          {couple.fatherName} <em>{couple.joiner}</em> {couple.motherName}
+          <span className="name-nowrap">{couple.fatherName}</span>{' '}
+          <em>{couple.joiner}</em>{' '}
+          <span className="name-nowrap">{couple.motherName}</span>
         </p>
 
         <div className="hero__meta">
@@ -63,9 +65,6 @@ export default function Hero({ opened = false }) {
         <div className="hero__cta no-print">
           <a className="btn btn--solid" href="#events">
             The Ceremony
-          </a>
-          <a className="btn btn--ghost" href="#rsvp">
-            RSVP
           </a>
         </div>
 

@@ -18,8 +18,7 @@ export const siteConfig = {
     fatherName: 'Vigneshvaran N',
     // Shown as "Vigneshvaran N & Devi Sri G"
     joiner: '&',
-    motherPhoto: '/mother.jpg',
-    fatherPhoto: '/father.jpg',
+    couplePhoto: '/couple.webp',
     motherParents: 'D/o Mr. Gurusamy & Mrs. Kavitha',
     fatherParents: 'S/o Mr. Natarajan & Mrs. Thanabakkiyam',
   },
@@ -81,7 +80,7 @@ export const siteConfig = {
     // Swap to 'formspree' and add endpoint for email delivery.
     mode: 'whatsapp',
     whatsappNumber: '919876543210', // country code + number, no +
-    formspreeEndpoint: '', // e.g. 'https://formspree.io/f/xxxxxxx'
+    formspreeEndpoint: 'https://vignesh-bangleceremony.vercel.app/', // e.g. 'https://formspree.io/f/xxxxxxx'
   },
 
   // ── Guessing game (a fun extra) ───────────────────────────
